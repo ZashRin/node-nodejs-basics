@@ -4,9 +4,12 @@ import path from 'path';
 const __dirname = path.dirname('./');
 
 export const copy = async () => {
-    if (!fs.existsSync('./files')) {
-        throw new Error('FS operation failed');
-    }
+    fs.access(
+        path.join(__dirname, 'files'),
+        (err) => {
+            if(err) throw new Error('FS operation failed');
+        }
+    );
     fs.mkdir(
         path.join(__dirname, 'files_copy'), 
         (err) => {
