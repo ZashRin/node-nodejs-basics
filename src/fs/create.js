@@ -10,7 +10,8 @@ export const create = async () => {
         { flag: 'wx' }, 
         (err) => {
             if(err) throw new Error('FS operation failed');
-        })
+        }
+    );
 };
 
 create();
