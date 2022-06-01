@@ -6,8 +6,9 @@ const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
 
-export const spawnChildProcess = async (args) => {
-    if(!args) args = process.argv.slice(2);
+export const spawnChildProcess = async (args = [1, 2, 3]) => {
+    if(process.argv[2]) args = process.argv.slice(2);
+    
     const child = fork(path.join(__dirname, 'files/script.js'), args, { silent: true });
 
     

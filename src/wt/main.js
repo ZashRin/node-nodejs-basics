@@ -26,6 +26,8 @@ const calculate = async (initial) => {
 export const performCalculations = async (initial = 10) => {
     const workers = [];
 
+    if (process.argv[2]) initial = Number(process.argv[2]);
+    
     for(let i = 0; i < threads; i++) {
         workers.push(calculate(initial));
         initial++;
