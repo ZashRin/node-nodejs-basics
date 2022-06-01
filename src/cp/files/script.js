@@ -1,3 +1,5 @@
+import { spawnChildProcess } from '../cp.js';
+
 const args = process.argv.slice(2);
 
 console.log(`Total number of arguments is ${args.length}`);
@@ -10,3 +12,5 @@ const echoInput = (chunk) => {
 };
 
 process.stdin.on('data', echoInput);
+
+spawnChildProcess(args);
